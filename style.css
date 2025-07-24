@@ -1,0 +1,19 @@
+body {
+    font-family: Arial;
+    background: var(--tg-theme-bg-color, #1c1c1e);
+    color: var(--tg-theme-text-color, #fff);
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 12px;
+    background: var(--tg-theme-button-color, #5288c1);
+    color: var(--tg-theme-button-text-color, #fff);
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+}

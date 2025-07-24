@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Управление рассылкой</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Панель рассылки</h1>
+    <button onclick="sendCmd('start')">▶️ Запустить рассылку</button>
+    <button onclick="sendCmd('stop')">⏸️ Остановить рассылку</button>
+    <button onclick="setText()">✏️ Задать текст</button>
+    <button onclick="sendCmd('add_account')">➕ Добавить аккаунт</button>
+    <button onclick="sendCmd('delete_account')">❌ Удалить аккаунт</button>
+    <button onclick="sendCmd('clear_accounts')">🗑 Очистить все аккаунты</button>
+    <button onclick="sendCmd('list')">📋 Список аккаунтов</button>
+</div>
+<script>
+const tg = window.Telegram.WebApp;
+tg.expand();
+
+function sendCmd(cmd) {
+    tg.sendData(JSON.stringify({ action: cmd }));
+}
+function setText() {
+    const text = prompt("Введите новый текст:");
+    if(text) tg.sendData(JSON.stringify({ action: "set_text", text }));
+}
+</script>
+</body>
+</html>
